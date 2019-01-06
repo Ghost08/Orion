@@ -1,0 +1,290 @@
+<div class="row pt-1">
+  <div class="col-md-12  mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header text-white bg-secondary">
+        <h5 class="mb-0">Petition Details</h5>
+      </div>
+      <div class="card-body">
+        <nav class="mb-4">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-Petiton-tab" data-toggle="tab" href="#nav-Petiton" role="tab"
+              aria-controls="nav-Petiton" aria-selected="true">Petition Data</a>
+            <a class="nav-item nav-link" id="nav-Petitioner-tab" data-toggle="tab" href="#nav-Petitioner" role="tab"
+              aria-controls="nav-Petitioner" aria-selected="false">Petitioner</a>
+            <a class="nav-item nav-link" id="nav-Deceased-tab" data-toggle="tab" href="#nav-Deceased" role="tab"
+              aria-controls="nav-Deceased" aria-selected="false">Deceased</a>
+            <a class="nav-item nav-link" id="nav-Property-tab" data-toggle="tab" href="#nav-Property" role="tab"
+              aria-controls="nav-Property" aria-selected="false">Property</a>
+          </div>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-Petiton" role="tabpanel" aria-labelledby="nav-Petiton-tab">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionNo">Petition No <span class="text-danger">*</span> </label>
+
+                  <div *ngIf="isPetition">
+                    <label class="col-form-label">{{petitionData.Petition_No}}</label>
+                  </div>
+                  <div *ngIf="!isPetition">
+                    <input type="text" class="form-control" [(ngModel)]="petitionData.Petition_No" name="txtPetitionNo"
+                      placeholder="Petition No">
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionYear">Petition Year <span class="text-danger">*</span></label>
+                  <input type="txtPetitionYear" class="form-control" [(ngModel)]="petitionData.Petition_Year" name="txtPetitionYear"
+                    placeholder="Petition Year">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionType">Petition Type <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionData.Petition_Type" name="txtPetitionType"
+                    placeholder="Petition Type">
+                </div>
+
+                <div class="-group col-md-3">
+                  <label for="txtPetitioneDate">Date Of Petition <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionData.Date_Of_Petition" name="txtPetitioneDate"
+                    placeholder="Date of Petition">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="txtFile_Name">File Name</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionData.File_Name" name="txtFile_Name"
+                    placeholder="File Name">
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="txtAdvocate_Os_Reg_No">Advocate Os Reg. No </label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionData.Advocate_Os_Reg_No" name="txtAdvocate_Os_Reg_No"
+                    placeholder="Advocate Os Reg. No">
+                </div>
+
+                <div class="-group col-md-3">
+                  <label for="txtAdvocate_Code">Advocate Code</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionData.Advocate_Code" name="txtAdvocate_Code"
+                    placeholder="Advocate Code">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="txtAdvocate_Name">Advocate Name </label>
+                <input type="text" class="form-control" [(ngModel)]="petitionData.Advocate_Name" name="txtAdvocate_Name"
+                  placeholder="Advocate Name">
+              </div>
+
+              <div class="form-group">
+                <label for="txtAdvocate_Address">Advocate Address </label>
+                <input type="txtAdvocate_Address" class="form-control" [(ngModel)]="petitionData.Advocate_Address" name="txtAdvocate_Address"
+                  placeholder="Advocate Address">
+              </div>
+              <div class="form-group">
+                <label for="txtSurety_Name">Surety Name </label>
+                <input type="text" class="form-control" [(ngModel)]="petitionData.Surety_Name" name="txtSurety_Name"
+                  placeholder="Surety Full Name">
+              </div>
+
+              <div class="form-group">
+                <label for="txtPara_Four">Para 4 </label>
+                <input type="text" class="form-control" [(ngModel)]="petitionData.Para_Four" name="txtPara_Four"
+                  placeholder="Para 4">
+              </div>
+            </form>
+          </div>
+
+
+
+          <div class="tab-pane fade " id="nav-Petitioner" role="tabpanel" aria-labelledby="nav-Petitioner-tab">
+            <form>
+              <div class="form-group">
+                <label for="txtPetitionerName">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Name" name="txtPetitionerName"
+                  placeholder="Petitioner Full Name">
+              </div>
+
+
+              <div class="form-group">
+                <label for="txtPetitionerAddress">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Address" name="txtPetitionerAddress"
+                  placeholder="Petitioner Complete Addresss">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerPlace">Place</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Place" name="txtPetitionerPlace">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerNationality">Nationality</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Nationality" name="txtPetitionerNationality">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerGender">Gender</label>
+                  <!-- <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Gender" name="txtPetitionerGender"> -->
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male"
+                      [(ngModel)]="petitionerData.Petitioner_Gender">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female"
+                      [(ngModel)]="petitionerData.Petitioner_Gender">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerCaste">Caste</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Caste" name="txtPetitionerCaste">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerOccupation">Occupation</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Occupation" name="txtPetitionerOccupation">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerAge">Age</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Age" name="txtPetitionerAge">
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="txtPetitionerRelation">Relation</label>
+                  <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Relation" name="txtPetitionerRelation">
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="tab-pane fade" id="nav-Deceased" role="tabpanel" aria-labelledby="nav-Deceased-tab">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="txtDeceasedName">Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Name" name="txtDeceasedName"
+                    placeholder="Deceased Full Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="txtDeceasedAlias">Alias</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Alias" name="txtDeceasedAlias"
+                    placeholder="Deceased Alias">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="txtDeceased_Title">Title</label>
+                <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Title" name="txtDeceased_Title"
+                  placeholder="Short title">
+              </div>
+              <div class="form-group">
+                <label for="txtDeceasedAddress">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Address" name="txtDeceasedAddress"
+                  placeholder="Deceased Complete Addresss">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedDate">Date Of Death <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Date_Of_Death" name="txtDeceasedDate"
+                    placeholder="Date of Death">
+                </div>
+
+
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedPlace">Place</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Place" name="txtDeceasedPlace">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedNationality">Nationality</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Nationality" name="txtDeceasedNationality">
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedGender">Gender</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Male"
+                      [(ngModel)]="deceasedData.Deceased_Gender">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Female"
+                      [(ngModel)]="deceasedData.Deceased_Gender">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedCaste">Caste</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Caste" name="txtDeceasedCaste">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedOccupation">Occupation</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Occupation" name="txtDeceasedOccupation">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedAge">Age</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Age" name="txtDeceasedAge">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="txtDeceasedMs">Marital Status</label>
+                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Marital_Status" name="txtDeceasedMs">
+                </div>
+
+              </div>
+
+
+
+            </form>
+
+          </div>
+          <div class="tab-pane fade" id="nav-Property" role="tabpanel" aria-labelledby="nav-Property-tab">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="txtPropertyLocation">Location</label>
+                  <input type="text" class="form-control" [(ngModel)]="propertyData.Property_Location" name="txtPropertyLocation"
+                    placeholder="Property Location">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="txtPropertyState">State</label>
+                  <input type="text" class="form-control" [(ngModel)]="propertyData.Property_State" name="txtPropertyState"
+                    placeholder="Property State">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="txtProperty_Value">Property Value</label>
+                  <input type="text" class="form-control" [(ngModel)]="propertyData.Property_Value" name="txtProperty_Value"
+                    placeholder="Property Valuation">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="txtPropertyShare">Property Share</label>
+                  <input type="text" class="form-control" [(ngModel)]="propertyData.Property_Share" name="txtPropertyShare"
+                    placeholder="Property Share">
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="txtPropertyAddress">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="propertyData.Property_Address" name="txtPropertyAddress"
+                  placeholder="Property Complete Address">
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <button type="button" class="btn btn-primary" (click)="saveData()">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

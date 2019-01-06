@@ -1,0 +1,39 @@
+<div class="row pt-1">
+  <div class="col-md-12  mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header text-white bg-secondary">
+        <h5 class="mb-0">Dashboard</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Year</th>
+              <th>Type</th>
+              <th>
+                Action
+              </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of petitionData">
+              <td>{{p.File_Name}}</td>
+              <td>{{p.Petition_Year}}</td>
+              <td>{{p.Petition_Type}}</td>
+              <td>
+                <button class="btn btn-sm btn-warning" style="width:100px" (click)="editPetition(p.Petition_No)">Edit</button>
+                &nbsp;
+                <button class="btn btn-sm btn-primary" style="width:100px" (click)="downloadFile(p.Petition_No)">Download</button>
+              </td>
+
+            </tr>
+          </tbody>
+
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
