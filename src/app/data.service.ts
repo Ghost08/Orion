@@ -21,8 +21,14 @@ export class DataService {
     return this._http.get(environment.apibaseurl + 'api/petition/fetchData');
   }
 
+  fetchPetitionDashboardData() {
+    return this._http.get(environment.apibaseurl + 'api/petition/fetchDashboard');
+  }
+
+
   fetchPetitionData(petitionNo: string) {
     return this._http.get(environment.apibaseurl + 'api/petition/fetchData?Petition_No=' + petitionNo)
   }
+
 
 }

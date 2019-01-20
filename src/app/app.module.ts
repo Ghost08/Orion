@@ -1,8 +1,9 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { DataTableModule } from 'angular-6-datatable'
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
+  
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true
     }),
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    DataTableModule
   ],
   providers: [AuthService, DataService,AuthGuard,
     {

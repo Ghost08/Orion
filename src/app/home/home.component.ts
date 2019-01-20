@@ -21,13 +21,15 @@ export class HomeComponent implements OnInit {
 
     this.spinner.show();
 
-    this._dataService.fetchAllPetitionData().subscribe(res => {
+    this._dataService.fetchPetitionDashboardData().subscribe(res => {
       this.spinner.hide();
       let response = res;
       console.log(response);
       if (response["status"] === "success") {
         this.petitionData = response["data"];
-
+      }
+      else{
+        this.toastr.error("no data");
       }
     }, err => {
       this.spinner.hide();
