@@ -14,6 +14,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col"><mfDefaultSorter by="Advocate_Name">Advocate</mfDefaultSorter></th>
+                <th scope="col">File Name</th>
                 <th scope="col">Year</th>
                 <th scope="col">Type</th>
                 <th scope="col">
@@ -26,6 +27,7 @@
               <tr *ngFor="let p of mf.data; let i = index">
                 <td scope="row">{{i + 1}}</td>
                 <td>{{p.Advocate_Name}}</td>
+                <td>{{p.File_Name}}</td>
                 <td>{{p.Petition_Year}}</td>
                 <td>{{p.Petition_Type}}</td>
                 <td>
@@ -41,7 +43,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
                 </td>
               </tr>
