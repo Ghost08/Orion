@@ -10,13 +10,13 @@
             <a class="nav-item nav-link active" id="nav-Petiton-tab" data-toggle="tab" href="#nav-Petiton" role="tab"
               aria-controls="nav-Petiton" aria-selected="true">Petition Data</a>
             <a class="nav-item nav-link" id="nav-Deceased-tab" data-toggle="tab" href="#nav-Deceased" role="tab"
-              aria-controls="nav-Deceased" aria-selected="false">Deceased</a>
+              aria-controls="nav-Deceased" aria-selected="false">Deceased Details</a>
 
             <a class="nav-item nav-link" id="nav-Petitioner-tab" data-toggle="tab" href="#nav-Petitioner" role="tab"
-              aria-controls="nav-Petitioner" aria-selected="false">Petitioner</a>
+              aria-controls="nav-Petitioner" aria-selected="false">Petitioner Details</a>
 
             <a class="nav-item nav-link" id="nav-Property-tab" data-toggle="tab" href="#nav-Property" role="tab"
-              aria-controls="nav-Property" aria-selected="false">Property</a>
+              aria-controls="nav-Property" aria-selected="false">Schedule Details</a>
           </div>
         </nav>
 
@@ -315,14 +315,14 @@
                     placeholder="Property State">
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="txtProperty_Value">Property Value</label>
+                  <label for="txtProperty_Value">Total Value of Schedule</label>
                   <input type="text" class="form-control" [(ngModel)]="propertyData.Property_Value" name="txtProperty_Value"
                     placeholder="Property Valuation">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label for="txtPropertyShare">Property Share</label>
+                  <label for="txtPropertyShare">Entitled to % Share</label>
                   <input type="text" class="form-control" [(ngModel)]="propertyData.Property_Share" name="txtPropertyShare"
                     placeholder="Property Share">
                 </div>
