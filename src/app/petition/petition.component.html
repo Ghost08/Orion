@@ -13,7 +13,7 @@
           </strong>
         </div>
         <nav class="mb-4 mt-4">
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-Petiton-tab" data-toggle="tab" href="#nav-Petiton" role="tab"
               aria-controls="nav-Petiton" aria-selected="true">Petition Data</a>
             <a class="nav-item nav-link" id="nav-Deceased-tab" data-toggle="tab" href="#nav-Deceased" role="tab"
@@ -44,7 +44,7 @@
                     placeholder="Petition Type">
                 </div>
 
-                <div class="-group col-md-3">
+                <div class="form-group col-md-3">
                   <label for="txtPetitioneDate">Date Of Petition <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" [(ngModel)]="petitionData.Date_Of_Petition" name="txtPetitioneDate"
                     placeholder="Date of Petition">
@@ -87,7 +87,7 @@
                     placeholder="Advocate Os Reg. No">
                 </div>
 
-                <div class="-group col-md-3">
+                <div class="form-group col-md-3">
                   <label for="txtAdvocate_Code">Advocate Code</label>
                   <input type="text" class="form-control" [(ngModel)]="petitionData.Advocate_Code" name="txtAdvocate_Code"
                     placeholder="Advocate Code">
@@ -98,7 +98,7 @@
                     placeholder="eg. abc@xyz.com">
                 </div>
 
-                <div class="-group col-md-3">
+                <div class="form-group col-md-3">
                   <label for="txtAdvocate_Mobile_No">Advocate Mobile No</label>
                   <input type="text" class="form-control" [(ngModel)]="petitionData.Advocate_Mobile_No" name="txtAdvocate_Mobile_No"
                     placeholder="eg +91-XXXXXXXXXX">
@@ -128,34 +128,34 @@
                 <button class="btn btn-sm btn-info" (click)="openPetitionerModal()">
                   <i class="fa fa-plus" aria-hidden="true"></i> Petitioner</button>
               </div>
-
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let pet of petitionData.Petitioners; let i= index">
-                    <td>{{pet.Petitioner_Name}} </td>
-                    <td>{{pet.Petitioner_Gender}} </td>
-                    <td>{{pet.Petitioner_Address}} </td>
-                    <td>
-                      <button title="edit" class="btn btn-sm btn-primary" (click)="editPetitioner(i)"><i class="fa fa-pencil-square-o"
-                          aria-hidden="true"></i> </button>
-                      &nbsp;<button title="delete" class="btn btn-sm btn-danger" (click)="deletePetitioner(i)"><i class="fa fa-trash"
-                          aria-hidden="true"></i></button>
-                    </td>
-                  </tr>
-                  <tr *ngIf="petitionData.Petitioners == null">
-                    <td colspan="4">No Petitioner Data</td>
-                  </tr>
-                </tbody>
-              </table>
-
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Gender</th>
+                      <th>Address</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pet of petitionData.Petitioners; let i= index">
+                      <td>{{pet.Petitioner_Name}} </td>
+                      <td>{{pet.Petitioner_Gender}} </td>
+                      <td>{{pet.Petitioner_Address}} </td>
+                      <td>
+                        <button title="edit" class="btn btn-sm btn-primary" (click)="editPetitioner(i)"><i class="fa fa-pencil-square-o"
+                            aria-hidden="true"></i> </button>
+                        &nbsp;<button title="delete" class="btn btn-sm btn-danger" (click)="deletePetitioner(i)"><i
+                            class="fa fa-trash" aria-hidden="true"></i></button>
+                      </td>
+                    </tr>
+                    <tr *ngIf="petitionData.Petitioners == null">
+                      <td colspan="4">No Petitioner Data</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <!-- Modal -->
               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
                 aria-hidden="true">
@@ -187,11 +187,11 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="txtPetitionerPlace">Place</label>
-                          <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Place" name="txtPetitionerPlace">
+                          <input type="text" class="form-control" placeholder="Place" [(ngModel)]="petitionerData.Petitioner_Place" name="txtPetitionerPlace">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="txtPetitionerNationality">Inhabitant of</label>
-                          <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Nationality"
+                          <input type="text" class="form-control" placeholder="Nationality" [(ngModel)]="petitionerData.Petitioner_Nationality"
                             name="txtPetitionerNationality">
                         </div>
 
@@ -215,11 +215,11 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="txtPetitionerCaste">Religion</label>
-                          <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Caste" name="txtPetitionerCaste">
+                          <input type="text" class="form-control" placeholder="Religion" [(ngModel)]="petitionerData.Petitioner_Caste" name="txtPetitionerCaste">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="txtPetitionerOccupation">Occupation</label>
-                          <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Occupation"
+                          <input type="text" class="form-control" placeholder="Occupation" [(ngModel)]="petitionerData.Petitioner_Occupation"
                             name="txtPetitionerOccupation">
                         </div>
                       </div>
@@ -227,12 +227,12 @@
 
                         <div class="form-group col-md-6">
                           <label for="txtPetitionerAge">Age</label>
-                          <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Age" name="txtPetitionerAge">
+                          <input type="text" class="form-control" placeholder="Age in years" [(ngModel)]="petitionerData.Petitioner_Age" name="txtPetitionerAge">
                         </div>
 
                         <div class="form-group col-md-6">
-                          <label for="txtPetitionerRelation">Relation with deceased</label>
-                          <input type="text" class="form-control" [(ngModel)]="petitionerData.Petitioner_Relation" name="txtPetitionerRelation">
+                          <label for="txtPetitionerRelation">Relation</label>
+                          <input type="text" class="form-control" placeholder="Relation with deceased" [(ngModel)]="petitionerData.Petitioner_Relation" name="txtPetitionerRelation">
                         </div>
                       </div>
                     </div>
@@ -288,11 +288,11 @@
 
                 <div class="form-group col-md-3">
                   <label for="txtDeceasedPlace">Place</label>
-                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Place" name="txtDeceasedPlace">
+                  <input type="text" class="form-control" placeholder="Place" [(ngModel)]="deceasedData.Deceased_Place" name="txtDeceasedPlace">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="txtDeceasedNationality">Inhabitant of</label>
-                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Nationality" name="txtDeceasedNationality">
+                  <input type="text" class="form-control" placeholder="Nationality" [(ngModel)]="deceasedData.Deceased_Nationality" name="txtDeceasedNationality">
                 </div>
 
                 <div class="form-group col-md-3">
@@ -313,19 +313,19 @@
               <div class="form-row">
                 <div class="form-group col-md-3">
                   <label for="txtDeceasedCaste">Religion</label>
-                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Caste" name="txtDeceasedCaste">
+                  <input type="text" class="form-control" placeholder="Religion" [(ngModel)]="deceasedData.Deceased_Caste" name="txtDeceasedCaste">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="txtDeceasedOccupation">Occupation</label>
-                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Occupation" name="txtDeceasedOccupation">
+                  <input type="text" class="form-control" placeholder="Occupation" [(ngModel)]="deceasedData.Deceased_Occupation" name="txtDeceasedOccupation">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="txtDeceasedAge">Age</label>
-                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Age" name="txtDeceasedAge">
+                  <input type="text" class="form-control" placeholder="Age in years" [(ngModel)]="deceasedData.Deceased_Age" name="txtDeceasedAge">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="txtDeceasedMs">Marital Status</label>
-                  <input type="text" class="form-control" [(ngModel)]="deceasedData.Deceased_Marital_Status" name="txtDeceasedMs">
+                  <input type="text" class="form-control"  placeholder="eg.Married,Unmarried,Widower etc." [(ngModel)]="deceasedData.Deceased_Marital_Status" name="txtDeceasedMs">
                 </div>
 
               </div>
@@ -344,32 +344,34 @@
                   <i class="fa fa-plus" aria-hidden="true"></i> Legal Heir</button>
               </div>
 
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Relation</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let pet of petitionData.LegalHeirs; let i= index">
-                    <td>{{pet.Legal_Heir_Name}} </td>
-                    <td>{{pet.Legar_Heir_Relation}} </td>
-                    <td>{{pet.Legal_Heir_Address}} </td>
-                    <td>
-                      <button title="edit" class="btn btn-sm btn-primary" (click)="editLegalHeir(i)"><i class="fa fa-pencil-square-o"
-                          aria-hidden="true"></i> </button>
-                      &nbsp;<button title="delete" class="btn btn-sm btn-danger" (click)="deleteLegalHeir(i)"><i class="fa fa-trash"
-                          aria-hidden="true"></i></button>
-                    </td>
-                  </tr>
-                  <tr *ngIf="petitionData.LegalHeirs == null">
-                    <td colspan="4">No Legal Heir Data</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Relation</th>
+                      <th>Address</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pet of petitionData.LegalHeirs; let i= index">
+                      <td>{{pet.Legal_Heir_Name}} </td>
+                      <td>{{pet.Legar_Heir_Relation}} </td>
+                      <td>{{pet.Legal_Heir_Address}} </td>
+                      <td>
+                        <button title="edit" class="btn btn-sm btn-primary" (click)="editLegalHeir(i)"><i class="fa fa-pencil-square-o"
+                            aria-hidden="true"></i> </button>
+                        &nbsp;<button title="delete" class="btn btn-sm btn-danger" (click)="deleteLegalHeir(i)"><i
+                            class="fa fa-trash" aria-hidden="true"></i></button>
+                      </td>
+                    </tr>
+                    <tr *ngIf="petitionData.LegalHeirs == null">
+                      <td colspan="4">No Legal Heir Data</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
               <!-- Modal legal Heir-->
               <div class="modal fade test" id="legalHeirModalCenter" tabindex="-1" role="dialog" aria-labelledby="legalHeirModalCenterTitle"
@@ -402,11 +404,11 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="txtLegalHeirPlace">Place</label>
-                          <input type="text" class="form-control" [(ngModel)]="legalHeirData.Legal_Heir_Place" name="txtLegalHeirPlace">
+                          <input type="text" class="form-control" placeholder="Place" [(ngModel)]="legalHeirData.Legal_Heir_Place" name="txtLegalHeirPlace">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="txtLegalHeirNationality">Inhabitant of</label>
-                          <input type="text" class="form-control" [(ngModel)]="legalHeirData.Legal_Heir_Nationality"
+                          <input type="text" class="form-control"  placeholder="Nationality" [(ngModel)]="legalHeirData.Legal_Heir_Nationality"
                             name="txtLegalHeirNationality">
                         </div>
 
@@ -414,7 +416,7 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="txtLegalHeirCaste">Religion</label>
-                          <input type="text" class="form-control" [(ngModel)]="legalHeirData.Legal_Heir_Caste" name="txtLegalHeirCaste">
+                          <input type="text" class="form-control"  placeholder="Religion" [(ngModel)]="legalHeirData.Legal_Heir_Caste" name="txtLegalHeirCaste">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="txtLegalHeirGender" class="control-label">Gender</label>
@@ -434,12 +436,12 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="txtLegalHeirAge">Age</label>
-                          <input type="text" class="form-control" name="txtLegalHeirAge" [(ngModel)]="legalHeirData.Legal_Heir_Age">
+                          <input type="text" class="form-control"  placeholder="Age in years" name="txtLegalHeirAge" [(ngModel)]="legalHeirData.Legal_Heir_Age">
                         </div>
 
                         <div class="form-group col-md-6">
-                          <label for="txtLegalHeirRelation">Relation with deceased</label>
-                          <input type="text" class="form-control" name="txtLegalHeirRelation" [(ngModel)]="legalHeirData.Legar_Heir_Relation">
+                          <label for="txtLegalHeirRelation">Relation</label>
+                          <input type="text" class="form-control"  placeholder="Relation with deceased" name="txtLegalHeirRelation" [(ngModel)]="legalHeirData.Legar_Heir_Relation">
                         </div>
                       </div>
                     </div>

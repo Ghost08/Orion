@@ -32,15 +32,17 @@
                 <td>{{p.Deceased_Gender}}</td>
                 <td>{{p.Petition_Type}}</td>
                 <td>
-                  <button class="btn btn-sm btn-primary" title="edit" (click)="editPetition(p.Petition_No)">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </button>
-                  &nbsp;
-                  <button class="btn btn-sm btn-warning " title="download" (click)="downloadFile(p.Petition_No)"><i
-                      class="fa fa-download" aria-hidden="true"></i></button>
-                      &nbsp;
-                  <button class="btn btn-sm btn-info" title="archive" (click)="archivePetition(p.Petition_No)"><i
-                      class="fa fa-archive" aria-hidden="true"></i></button>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-sm btn-primary" title="edit" (click)="editPetition(p.Petition_No)">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-warning " title="download" (click)="downloadFile(p.Petition_No)"><i
+                        class="fa fa-download" aria-hidden="true"></i></button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-info" title="archive" (click)="archivePetition(p.Petition_No)"><i
+                        class="fa fa-archive" aria-hidden="true"></i></button>
+                  </div>
                 </td>
 
               </tr>
