@@ -16,7 +16,9 @@ import { AboutComponent } from './about/about.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthGuard } from './auth.guard';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { DataTableModule } from 'angular-6-datatable'
+import { DataTableModule } from 'angular-6-datatable';
+import { LogComponent } from './log/log.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DataTableModule } from 'angular-6-datatable'
     HomeComponent,
     LoginComponent,
     PetitionComponent,
-    AboutComponent
+    AboutComponent,
+    LogComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

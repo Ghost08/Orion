@@ -14,6 +14,8 @@ export class PetitionComponent implements OnInit {
 
   petitionData: any = {};
   petitionerData: any = {};
+  legalHeirData:any = {};
+  
   deceasedData: any = {};
   propertyData: any = {};
   private Petition_No: string = "";
@@ -56,6 +58,13 @@ export class PetitionComponent implements OnInit {
     }
   }
 
+
+  openLegalHeirModal(){
+    console.log("openLegalHeirModal() clicked")
+    document.getElementById("btnopenLegalHeirModal").click();
+    this.legalHeirData = {};
+  }
+
   openPetitionerModal(){
     document.getElementById("btnopenPetitionerModal").click();
     this.petitionerData = {};
@@ -82,6 +91,28 @@ export class PetitionComponent implements OnInit {
     }
   }
 
+  addLegalHeir(){
+
+    if (this.legalHeirData.Legal_Heir_Name == null || this.legalHeirData.Legal_Heir_Name == undefined) {
+      this.toastr.warning("Provide Legal Heir Name");
+    }
+    else {
+
+      if (this.petitionData.LegalHeirs == null) {
+        this.petitionData.LegalHeirs = [];
+      }
+
+      if (this.legalHeirData.Lh_Id != null) {
+        this.petitionData.LegalHeirs = this.petitionData.LegalHeirs.filter(f => f["Lh_Id"] != this.legalHeirData.Lh_Id);
+      }
+
+      this.petitionData.LegalHeirs.push(this.legalHeirData);
+      this.legalHeirData = {};
+      this.closeLegalHeirModal();
+    }
+
+  }
+
   editPetitioner(index) {
     if (this.petitionData.Petitioners != null && this.petitionData.Petitioners.length > 0) {
       this.petitionerData = Object.assign({}, this.petitionData.Petitioners[index]);
@@ -97,17 +128,37 @@ export class PetitionComponent implements OnInit {
     }
   }
 
+  editLegalHeir(index){
+    if (this.petitionData.LegalHeirs != null && this.petitionData.LegalHeirs.length > 0) {
+      this.legalHeirData = Object.assign({}, this.petitionData.LegalHeirs[index]);
+      document.getElementById("btnopenLegalHeirModal").click();
+    }
+  }
+
+  deleteLegalHeir(index){
+    if (confirm("Are you sure ?")) {
+      if (this.petitionData.LegalHeirs != null && this.petitionData.LegalHeirs.length > 0) {
+        this.petitionData.LegalHeirs.splice(index, 1);
+      }
+    }
+  }
+
   closePetitionerModal() {
     this.petitionerData = {};
     document.getElementById("btnclosePetitionerModal").click();
   }
 
+  closeLegalHeirModal() {
+    this.legalHeirData = {};
+    document.getElementById("btncloseLegalHeirModal").click();
+  }
+
   private validateForm() {
 
-    if (this.petitionData.Petition_No == null || this.petitionData.Petition_No == undefined) {
-      this.toastr.warning("Provide Petition Number");
-      return false;
-    }
+    // if (this.petitionData.Petition_No == null || this.petitionData.Petition_No == undefined) {
+    //   this.toastr.warning("Provide Petition Number");
+    //   return false;
+    // }
 
     if (this.petitionData.Petition_Year == null || this.petitionData.Petition_Year == undefined) {
       this.toastr.warning("Provide Petition Year");

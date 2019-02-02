@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { PetitionComponent } from './petition/petition.component';
 import { AboutComponent } from './about/about.component';
 import { AuthGuard } from './auth.guard';
+import { LogComponent } from './log/log.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = [
   {
     path: "",
@@ -31,8 +33,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path:"about",
-    component:AboutComponent
+    path: "about",
+    component: AboutComponent
+  },
+  {
+    path: "log",
+    component: LogComponent
+  },
+  {
+    path: "**",
+    component: PagenotfoundComponent
   }
 
 ];

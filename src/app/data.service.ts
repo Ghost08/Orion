@@ -9,7 +9,6 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   getFormattedDocument(petitionNo: string) {
-
     return this._http.get(environment.apibaseurl + 'api/docx/formatData?Petition_No=' + petitionNo);
   }
 
@@ -21,8 +20,8 @@ export class DataService {
     return this._http.get(environment.apibaseurl + 'api/petition/fetchData');
   }
 
-  fetchPetitionDashboardData() {
-    return this._http.get(environment.apibaseurl + 'api/petition/fetchDashboard');
+  fetchPetitionDashboardData(isArchived: boolean) {
+    return this._http.get(environment.apibaseurl + 'api/petition/fetchDashboard?isArchived=' + isArchived);
   }
 
 
@@ -30,5 +29,8 @@ export class DataService {
     return this._http.get(environment.apibaseurl + 'api/petition/fetchData?Petition_No=' + petitionNo)
   }
 
+  archivePetitionData(petitionNo: string, isArchived: boolean) {
+    return this._http.post(environment.apibaseurl + 'api/petition/archivePetitonData?Petition_No=' + petitionNo + "&IsArchived=" + isArchived, null);
+  }
 
 }
